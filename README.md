@@ -2,7 +2,7 @@
 # Alignment free - TP 1
 
 L'objectif du TP est de comparer 5 especes de bactéries entre elles.
-Vous trouverez les données en suivant [ce lien](https://we.tl/t-WeWvheBBGX](https://we.tl/t-ACiDxJko7s)
+Vous trouverez les données en suivant [ce lien](https://we.tl/t-ACiDxJko7s)
 
 ## Composer le TP
 
