@@ -1,0 +1,3 @@
+[submodule "seqdd"]
+	path = seqdd
+	url = https://github.com/yoann-dufresne/seqdd.git
