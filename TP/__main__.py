@@ -1,13 +1,35 @@
 from TP.loading import load_directory
 from TP.kmers import stream_kmers, kmer2str
 
+def create_index(seq, k):
+    index = dict()
+    for kmer in stream_kmers(seq, k):
+        if kmer not in index :
+            index[kmer] = 1
+        else :
+            index[kmer] += 1
+    return index
 
 
 def jaccard(fileA, fileB, k):
     j = 0
-    # --- To complete ---
+    index = create_index(fileA, k)
+    files_intersect = 0
+    files_union = sum(index.values())
+    for kmer in stream_kmers(fileB, k):
+        if kmer in index and index[kmer] > 0 :
+            files_intersect += 1
+            index[kmer] -= 1
+        else :
+            files_union += 1
+    j = files_intersect/files_union
     return j
 
+def concatenate_seq(seq):
+    new_seq = ""
+    for l in seq :
+        new_seq += l
+    return new_seq
 
 
 if __name__ == "__main__":
@@ -19,10 +41,11 @@ if __name__ == "__main__":
     
     print("Computing Jaccard similarity for all pairs of samples")
     filenames = list(files.keys())
-    for i in range(len(files)):
-        for j in range(i+1, len(files)):
-            
-            # --- Complete here ---
+    for n in range(len(files)):
+        files[filenames[n]] = concatenate_seq(files[filenames[n]])
 
-            j = jaccard(files[filenames[i]], files[filenames[j]], k)
-            print(filenames[i], filenames[j], j)
+    for i in range(len(files)):
+       for j in range(i+1, len(files)):
+            
+            j_val = jaccard(files[filenames[i]],files[filenames[j]],k)
+            print(filenames[i], filenames[j], j_val)
