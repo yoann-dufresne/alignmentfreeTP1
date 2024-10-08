@@ -1,7 +1,8 @@
 from TP.loading import load_directory
 from TP.kmers import stream_kmers, kmer2str
 
-def create_index(seq, k):
+def create_index(seq, k):   #dictionnaire avec tous les kmers canoniques (clés) 
+                            #et leur fréquence d'apparition dans la séquence 1 (valeur)
     index = dict()
     for kmer in stream_kmers(seq, k):
         if kmer not in index :
@@ -11,7 +12,7 @@ def create_index(seq, k):
     return index
 
 
-def jaccard(fileA, fileB, k):
+def jaccard(fileA, fileB, k): #calcule la distance Jaccard entre deux séquences selon l'intersection et l'union de leur kmer
     j = 0
     index = create_index(fileA, k)
     files_intersect = 0
@@ -25,7 +26,7 @@ def jaccard(fileA, fileB, k):
     j = files_intersect/files_union
     return j
 
-def concatenate_seq(seq):
+def concatenate_seq(seq):       #accolle les différentes séquences d'un fichier fasta
     new_seq = ""
     for l in seq :
         new_seq += l
@@ -42,7 +43,7 @@ if __name__ == "__main__":
     print("Computing Jaccard similarity for all pairs of samples")
     filenames = list(files.keys())
     for n in range(len(files)):
-        files[filenames[n]] = concatenate_seq(files[filenames[n]])
+        files[filenames[n]] = concatenate_seq(files[filenames[n]])  #permet d'éviter le problème de plusieurs séquences dans un fichier
 
     for i in range(len(files)):
        for j in range(i+1, len(files)):
