@@ -109,13 +109,13 @@ Le TP peut être rendu par bionôme. Je dois l'indiquer dans RENDU.md en précis
 
 Le code que vous avez produit lors de la première séance de TP doit s'exécuter en quelques secondes au maximum.
 La matrice des identitées de Jaccard doit être très proche de:
-|  | GCA_000013265.1 | GCA_000005845.2 | GCA_000069965.1 | GCA_000008865.2 | GCA_030271835.1 |
+|                 | GCA_000013265.1 | GCA_000005845.2 | GCA_000069965.1 | GCA_000008865.2 | GCA_030271835.1 |
 | :-: | :-: | :-: | :-: | :-: | :-: |
-| GCA_000013265.1 | 1.0 | 0 | 0 | 0 | 0 |
-| GCA_000005845.2 |  | 1.0 | 0 | 0 | 0 |
-| GCA_000069965.1 |  |  | 1.0 | 0 | 0 |
-| GCA_000008865.2 |  |  |  | 1.0 | 0 |
-| GCA_030271835.1 |  |  |  |  | 1.0 |
+| (1) GCA_000013265.1 | 1.0             | 0.3410          | 0.0024          | 0.3071          | 0.0024 |
+| (2) GCA_000005845.2 |                 | 1.0             | 0.0026          | 0.4365          | 0.0026 |
+| (3) GCA_000069965.1 |                 |                 | 1.0             | 0.0023          | 0.0311 |
+| (4) GCA_000008865.2 |                 |                 |                 | 1.0             | 0.0023 |
+| (5) GCA_030271835.1 |                 |                 |                 |                 | 1.0 |
 
 
 ### Rendu TP 2
